@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROITZ-web</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Plus+Jakarta+Sans:wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a7580b4f0.js" crossorigin="anonymous"></script>
+    <script src="../JS/tools.js" defer></script>
+     <link rel="icon" href="../images/google-gemini-icon.png">
+</head>
+<body>
+    <div class="backColor c1"></div>
+    <div class="backColor c2"></div>
+    <div class="backColor c3"></div>
+
+    <div class="wrap">
+        <nav class="navbar glass-effect">
+            <div class="brand">
+                <a href="home.html"><img src="../images/google-gemini-icon.png" alt="PROITZ logo"></a>
+                <span class="heading">
+                    <a href="home.html">PROITZ</a>
+                </span>
+            </div>
+
+            <div class="tabs glass-effect">
+                <button><a href="home.html">Public</a></button>
+                <button><a href="myrepo.html">My Repo</a></button>
+                <button><a href="favorite.html">Favorites</a></button>
+                <button id="active"><a href="tools.html">Tools</a></button>
+            </div>
+
+            <div class="last">
+                <button class="add" id="add" onclick="window.location.href='myrepo.html?vasa=10'" title="Add New Prompt"><i class="fa-solid fa-plus"></i></button>
+
+                <div class="user-details">
+                    <span id="initial" class="icon">R</span>
+                </div>
+
+                <div class="profile-view glass-effect hidden" id="profile-view">
+                    <div class="pop-head">
+                        <div class="profile-avatar" id="initial-pop">R</div>
+
+                        <div>
+                            <h3 id="popup-name">Your Name</h3>
+                            <p id="popup-email">your@email.com</p>
+                        </div>
+
+                        <div class="pop-stats">
+                            <div>
+                                <h1 id="repo-count">0</h1>
+                                <span>My Prompts</span>
+                            </div>
+
+                            <div>
+                                <h1 id="fav-count">0</h1>
+                                <span>Favorites</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button id="close-profile">Close</button>
+                            <button id="logout-profile" onclick="window.location.href='index.html'">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="main-section" id="#main-section">
+            <h2>Tools</h2>
+            <p>Powerful tools to create better prompts and estimate AI usage.</p>
+        </main>
+        <button id="backBtn" class="back-btn" style="display: none;">← Back to Tools</button>
+        <section class="tools-grid">
+            <div class="tool-card glass-effect">
+                <div class="tool-icon">
+                    <i class="fa-brands fa-openai"></i>
+                </div>
+                <div class="tool-details">
+                     <h2>AI Prompt Generator</h2>
+                    <p>
+                        Turn your simple ideas into clear, detailed prompts
+                        using Gemini AI.
+                    </p>
+                    <a href="#prompt-generator" class="tool-button pg">
+                    Generate Prompt
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                </div>
+                <div class="decoration bl">
+
+                </div>
+            </div>
+
+            <div class="tool-card glass-effect">
+                <div class="tool-icon tci">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="tool-details">
+                    <h2>Token Calculator</h2>
+                    <p>
+                        Estimate prompt tokens, response tokens and
+                        AI usage costs.
+                    </p>
+
+                    <a href="#token-calculator" class="tool-button tc">
+                        Calculate Tokens
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="decoration">
+
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="calc-section" id="token-calculator">
+            <div class="user-input-section glass-effect">
+                <section class="top-section">
+                    <div class="chat-icon">
+                        <i class="fa-brands fa-slack" id="big-icon"></i>
+                    </div>
+
+                    <div class="input-title">
+                        <h4>Your Prompt</h4>
+                        <p>Enter your prompt here to calculate the token count and cost...</p>
+                    </div>
+                </section>
+
+                <textarea name="prompt-input" id="user-prompt" placeholder="Enter your prompt here..."></textarea>
+
+                <section class="selection-section">
+                    <div class="selection-group">
+                        <label for="modelSelect">Model</label>
+
+                        <div class="select-wrapper">
+                            <select name="model" id="modelSelect">
+                                <option value="gpt-4o">GPT-4o</option>
+                                <option value="gpt-4o-mini">GPT-4o mini</option>
+                                <option value="gpt-4.1">GPT-4.1</option>
+                                <option value="gpt-4.1-mini">GPT-4.1 mini</option>
+                                <option value="claude">Claude</option>
+                                <option value="gemini">Gemini</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="responseLength">Response Length (optional)</label>
+
+                        <div class="select-wrapper">
+                            <select name="responseLength" id="responseLength">
+                                <option value="default">Default</option>
+                                <option value="short">Short (1–3 sentences)</option>
+                                <option value="medium">Medium (1–3 paragraphs)</option>
+                                <option value="long">Long (detailed response)</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <button class="calc-tokens" id="calc-tokens">Calculate Tokens</button>
+            </div>
+
+            <div class="output-section glass-effect">
+                <div class="result-heading">
+                    <div class="result-icon">
+                        <img src="../images/calculator.png" alt="Calculator">
+                    </div>
+
+                    <div>
+                        <h4>Results</h4>
+                        <p class="output-head">Here are the estimated tokens and cost for your prompt.</p>
+                    </div>
+                </div>
+
+                <div class="token-summary">
+                    <section class="input-section-output">
+                        <div class="input-icon">
+                            <img src="../images/document-arrow.png" alt="Input tokens">
+                        </div>
+
+                        <div>
+                            <h4>Input Token</h4>
+                            <h2>-</h2>
+                        </div>
+                    </section>
+
+                    <section class="ouput-section-output">
+                        <div class="output-icon">
+                            <img src="../images/document-export.png" alt="Output tokens">
+                        </div>
+
+                        <div>
+                            <h4>Output Token</h4>
+                            <h2>-</h2>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="total-tokens">
+                    <div class="total-image">
+                        <img src="../images/database.png" alt="Total tokens">
+                    </div>
+
+                    <div>
+                        <h4>Total Tokens</h4>
+                        <h2>-</h2>
+                    </div>
+                </div>
+
+                <div class="cost">
+                    <div class="cost-image">
+                        <img src="../images/money.png" alt="Cost">
+                    </div>
+
+                    <div class="cost-title">
+                        <h4>Estimated Cost</h4>
+                        <h2>-</h2>
+                    </div>
+
+                    <div class="detailed-cost">
+                        <p>Input Cost: $0.0</p>
+                        <p>Output Cost: $0.0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prompt-generator" id="prompt-generator">
+            <div class="prompt-generator-form">
+                <div class="head">
+                    <div class="iconForPg">
+                         <i class="fa-brands fa-openai"></i>
+                    </div>
+                    <div class="title-for-pg">
+                        <h2>AI PROMPT GENERATOR</h2>
+                        <p>
+                            Enter your idea and generate a clear, detailed AI prompt.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="prompt-idea">Your prompt:</label>
+                    <textarea name="prompt-area" id="prompt-idea" placeholder="Example: Create a mordern portfolio website for a developer" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="prompt-style">Prompt Style (optional)</label>
+                    <input type="text" id="prompt-style" placeholder="Example: Professional, creative, beginner-friendly">
+                </div>
+                <div class="form-group">
+                    <label for="prompt-extra">Additional Instructions (optional)</label>
+                     <textarea name="prompt-extra" id="prompt-extra" placeholder="Add any extra details or requirments"></textarea>
+                </div>
+                <button type="button" id="generate-prompt-btn">Generate Prompt</button>
+                <p id="prompt-status"></p>
+            </div>
+            <div class="prompt-generator-output">
+                <h3>Generated Prompt</h3>
+                <label for="generated-prompt-result" class="result-labe">Result:</label>
+                <textarea id="generated-prompt-result" placeholder="Your generated prompt will appear here..." readonly></textarea>
+                <div class="prompt-generator-actions">
+                    <button type="button" id="copy-prompt-btn" class="button-css">Copy Prompt</button>
+                    <button type="button" id="clear-prompt-btn" class="button-css">Clear</button>
+                    <button type="button" id="add-to-repo-btn" class="button-css">Add to My Repo</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

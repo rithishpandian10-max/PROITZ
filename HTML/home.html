@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROITZ-web</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+    <script src="../JS/home.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a7580b4f0.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../images/google-gemini-icon.png">
+</head>
+    <body>
+        <div class="backColor c1"></div>
+        <div class="backColor c2"></div>
+        <div class="backColor c3"></div>
+        <div class="wrap">
+            <nav class="navbar glass-effect">
+                <div class="brand">
+                    <a href="home.html"><img src="../images/google-gemini-icon.png" alt="img"></a>
+                    <span class="heading"><a href="home.html">PROITZ</a></span>
+                </div>
+                
+                <div class="tabs glass-effect">
+                    <button id="active"><a href="home.html">Public</a></button>
+                    <button><a href="myrepo.html">My Repo</a></button>
+                    <button><a href="favorite.html">Favorites</a></button>
+                    <button><a href="tools.html">Tools</a></button>
+                </div>
+                <div class="last">
+                    <button class="add" id="add" onclick="window.location.href='myrepo.html?vasa=10'" title="Add New Prompt"><i class="fa-solid fa-plus"></i></button>
+                    <div class="user-details">
+                        <button id="initial" class="icon" title="view profile">R</button>
+                    </div>
+                    <div class="profile-view glass-effect hidden" id="profile-view">
+                        <div class="pop-head">
+                            <div class="profile-avatar" id="initial-pop">R</div>
+                            <div>
+                                <h3 id="popup-name">Your Name</h3>
+                                <p id="popup-email">your@email.com</p>
+                            </div>
+                            <div class="pop-stats">
+                                <div>
+                                    <h1 id="repo-count">0</h1>
+                                    <span>My Prompts</span>
+                                </div>
+                                <div>
+                                    <h1 id="fav-count">0</h1>
+                                    <span>Favorites</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="close-profile">close</button>
+                                <button id="logout-profile">logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <main class="main-section">
+                <h1>Your best prompts,</h1>
+                <h2>always one tap away.</h2>
+                <p>Hi Rithish! Search, Save and Share prompts for every AI tool you use.</p>
+                <div>
+                    <input type="text" class="main-search glass-effect" placeholder='Search Prompts or category'>
+                    <img src="../images/google-gemini-icon.png" alt="img" class="search-image">
+                </div>
+            </main>
+            <div class="categories" id="categories">
+            </div>
+            <p id="result-count"></p>
+            <div class="grid" id="prompt-list">
+            </div>
+        </div>
+        <div id="prompt-modal" class="prompt-modal hidden glass-effect">
+            <div class="prompt-detail glass-effect">
+                <button id="close-modal">
+                    x
+                </button>
+            <h2 id="detail-title">Detail View</h2>
+            <span id="detail-category" class="category-title"></span>
+            <p id="detail-author" class="detail-author"></p>
+            <div id="detail-text" class="detail-text"></div>
+            
+            </div>
+        </div>
+        <div id="toast"></div>
+    </body>
+</html>       

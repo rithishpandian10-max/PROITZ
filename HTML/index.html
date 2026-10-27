@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proitz-web</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/app.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+     <link rel="icon" href="../images/google-gemini-icon.png">
+</head>
+    <body>
+        <!-- this is for background color -->
+        <div class="backColor c1"></div>
+        <div class="backColor c2"></div>     
+        <div class="backColor c3"></div>     
+        <main class="login-parent">
+            <div class="login-card glass-effect">
+                <img src="../images/google-gemini-icon.png" alt="">
+                <h1>PROITZ</h1>
+                <p id="greet">Welcome back</p>
+                <p id="description">Save, share and discuss your best prompts.</p>
+                <form id="login-details">
+                    <label for="name" class="hidden name-label">Name</label >
+                    <input type="text" id="Name" placeholder="Your Name" class="hidden">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                    <label for="password" id="pass">Password</label>  
+                    <input type="password" id="password" placeholder=" 8 characters,uppercase,lowecase,number" required>
+                    <button type="submit" id="submit-btn">Log in</button>
+                    <p id="error"></p>
+                </form>
+                <!-- content change while user wants to login account -->
+                <p class="changing-content">
+                    <span id="changing-text">New here?</span>
+                    <a href="#" id="account-create">Create account</a>
+                </p>
+                
+            </div>
+        </main>
+    </body>
+</html>
